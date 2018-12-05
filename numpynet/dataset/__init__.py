@@ -1,4 +1,9 @@
 import numpy as np
+import os
+
+
+def _get_data(path):
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), path)
 
 
 def generator(data, batch_size, shuffle=True):

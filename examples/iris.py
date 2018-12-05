@@ -1,20 +1,4 @@
-# NumpyNet
 
-High level neural network API implementated using numpy
-
-# Requirements
-- python3
-
-# Install
-```
-$ git clone https://github.com/w86763777/numpynet
-$ cd numpynet
-$ python setup.py install
-```
-
-# Example
-
-```python
 from numpynet.dataset import iris
 from numpynet.models import SequentialModel
 from numpynet.optimizers import Adam
@@ -53,17 +37,3 @@ if __name__ == "__main__":
     model.fit(
         x=X_train, y=y_train, val_x=X_test, val_y=y_test,
         epochs=500, batch_size=8)
-
-```
-
-- output
-
-```
-Epoch 1/500
-100%|█████████████| 13/13 [00:00<00:00, 1441.88it/s, categorical_accuracy=0.2900, cross_entropy=1.0986, val_categorical_accuracy=0.3600, val_cross_entropy=1.0982]
-Epoch 2/500
-100%|█████████████| 13/13 [00:00<00:00, 1288.82it/s, categorical_accuracy=0.4200, cross_entropy=1.0968, val_categorical_accuracy=0.3600, val_cross_entropy=1.0982]
-...
-Epoch 500/500
-100%|█████████████| 13/13 [00:00<00:00, 1296.02it/s, categorical_accuracy=0.6900, cross_entropy=0.8285, val_categorical_accuracy=0.9600, val_cross_entropy=0.2492]
-```

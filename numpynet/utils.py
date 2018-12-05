@@ -14,8 +14,27 @@ def onehot(labels, depth):
 
 
 def assertfinite(v):
-    pass
-    # assert(np.isfinite(v).all())
+    assert(np.isfinite(v).all())
+
+
+def split_dataset(x, *args, **kwargs):
+    test_size = kwargs.get('test_size', 0.33)
+    shuffle = kwargs.get('shuffle', True)
+
+    if shuffle:
+        index = np.random.permutation(len(x))
+    else:
+        index = np.arange(len(x))
+    split_index = int(len(x) * (1 - test_size))
+    train_index, test_index = index[:split_index], index[split_index:]
+    if len(args) == 0:
+        return x[train_index], x[test_index]
+    else:
+        ret = [x[train_index], x[test_index]]
+        for arg in args:
+            ret.append(arg[train_index])
+            ret.append(arg[test_index])
+        return tuple(ret)
 
 
 def get_im2col_indices(x_shape, field_height, field_width, padding=1,

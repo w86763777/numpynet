@@ -8,3 +8,6 @@ dist
 build
 .eggs
 examples-keras
+
+examples/*
+!examples/iris.py
