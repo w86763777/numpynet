@@ -1,3 +1,20 @@
+# NumpyNet
+
+High level neural network API implementated using numpy
+
+# Requirements
+- python3
+
+# Install
+```
+$ git clone https://github.com/w86763777/numpynet
+$ cd numpynet
+$ python setup.py install
+```
+
+# Example
+
+```python
 import numpy as np
 from tqdm import tqdm
 from sklearn.datasets import make_classification
@@ -36,6 +53,7 @@ if __name__ == "__main__":
     model.add(Dropout(dropout_rate))
     model.add(Dense(4))
     model.add(Softmax())
+    
     model.compile(
         objective=CrossEntropy(),
         optimizer=RMSprop(learning_rate=learning_rate),
@@ -44,3 +62,4 @@ if __name__ == "__main__":
     model.fit(
         x=train.X, y=train.y, val_x=test.X, val_y=test.y, epochs=epochs,
         batch_size=batch_size)
+```
