@@ -15,8 +15,6 @@ $ python setup.py install
 # Example
 
 ```python
-import numpy as np
-from tqdm import tqdm
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 
@@ -26,8 +24,7 @@ from numpynet.optimizers import RMSprop
 from numpynet.loss import CrossEntropy
 from numpynet.utils import onehot
 from numpynet.metrics import categorical_accuracy
-from numpynet.layers import (
-    Input, Dense, ReLU, Softmax, Dropout, BatchNormalization)
+from numpynet.layers import Input, Dense, ReLU, Softmax, Dropout
 
 learning_rate = 0.001
 dropout_rate = 0.5
@@ -62,4 +59,5 @@ if __name__ == "__main__":
     model.fit(
         x=train.X, y=train.y, val_x=test.X, val_y=test.y, epochs=epochs,
         batch_size=batch_size)
+
 ```

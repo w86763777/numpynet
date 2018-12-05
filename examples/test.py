@@ -1,5 +1,3 @@
-import numpy as np
-from tqdm import tqdm
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 
@@ -9,8 +7,7 @@ from numpynet.optimizers import RMSprop
 from numpynet.loss import CrossEntropy
 from numpynet.utils import onehot
 from numpynet.metrics import categorical_accuracy
-from numpynet.layers import (
-    Input, Dense, ReLU, Softmax, Dropout, BatchNormalization)
+from numpynet.layers import Input, Dense, ReLU, Softmax, Dropout
 
 learning_rate = 0.001
 dropout_rate = 0.5
@@ -36,6 +33,7 @@ if __name__ == "__main__":
     model.add(Dropout(dropout_rate))
     model.add(Dense(4))
     model.add(Softmax())
+
     model.compile(
         objective=CrossEntropy(),
         optimizer=RMSprop(learning_rate=learning_rate),
