@@ -61,3 +61,10 @@ if __name__ == "__main__":
         batch_size=batch_size)
 
 ```
+- output
+```
+Epoch 999/1000
+100%|█████████████| 24/24 [00:00<00:00, 731.42it/s, categorical_accuracy=0.7987, cross_entropy=0.7114, val_categorical_accuracy=0.6960, val_cross_entropy=1.9230]
+Epoch 1000/1000
+100%|█████████████| 24/24 [00:00<00:00, 691.88it/s, categorical_accuracy=0.8133, cross_entropy=0.5209, val_categorical_accuracy=0.6920, val_cross_entropy=1.9149]
+```
