@@ -1,0 +1,10 @@
+.vscode
+
+venv
+__pycache__
+
+numpynet.egg-info
+dist
+build
+.eggs
+examples-keras
