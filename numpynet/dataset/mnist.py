@@ -54,7 +54,7 @@ def extract_labels(filename):
         return labels
 
 
-def read_data_sets(dir_path, one_hot=True):
+def read_data_sets(dir_path, one_hot=True, normalize=True):
     base_url = 'http://yann.lecun.com/exdb/mnist/%s'
     gzs = [
         'train-images-idx3-ubyte.gz',
@@ -82,6 +82,14 @@ def read_data_sets(dir_path, one_hot=True):
         y_train = onehot(y_train, 10)
         y_val = onehot(y_val, 10)
         y_test = onehot(y_test, 10)
+    
+    if normalize:
+        X_train /= 255.
+        y_train /= 255.
+        X_val /= 255.
+        y_val /= 255.
+        X_test /= 255.
+        y_test /= 255.
     
     return Munch(
         train=Dataset(X=X_train, y=y_train),
