@@ -2,33 +2,32 @@
 
 High level neural network API implementated using numpy
 
-# Requirements
+## Requirements
 - python3
 
-# Install
+## Install
 ```
 $ git clone https://github.com/w86763777/numpynet
 $ cd numpynet
 $ python setup.py install
 ```
 
-# Example
+## Example
 
 ```python
-from numpynet.dataset import iris
+from numpynet.dataset import iris, split_dataset
 from numpynet.models import SequentialModel
 from numpynet.optimizers import Adam
 from numpynet.loss import CrossEntropy
-from numpynet.utils import split_dataset
 from numpynet.metrics import categorical_accuracy
 from numpynet.layers import Input, Dense, ReLU, Softmax, Dropout
 
 
 if __name__ == "__main__":
     # load iris dataset
-    X, y = iris.read_data_sets()
+    iris = iris.read_data_sets()
     # split dataset
-    X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.33)
+    train, test = split_dataset(iris, test_size=0.33)
 
     # build model
     model = SequentialModel()
@@ -51,7 +50,7 @@ if __name__ == "__main__":
     
     # fit on data
     model.fit(
-        x=X_train, y=y_train, val_x=X_test, val_y=y_test,
+        x=train.X, y=train.y, val_x=test.X, val_y=test.y,
         epochs=500, batch_size=8)
 
 ```
@@ -67,3 +66,6 @@ Epoch 2/500
 Epoch 500/500
 100%|█████████████| 13/13 [00:00<00:00, 1296.02it/s, categorical_accuracy=0.6900, cross_entropy=0.8285, val_categorical_accuracy=0.9600, val_cross_entropy=0.2492]
 ```
+
+## Issues
+- regularization deos not work

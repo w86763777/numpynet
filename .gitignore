@@ -11,3 +11,4 @@ examples-keras
 
 examples/*
 !examples/iris.py
+!examples/mnist.py

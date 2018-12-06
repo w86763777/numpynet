@@ -1,18 +1,16 @@
-
-from numpynet.dataset import iris
+from numpynet.dataset import iris, split_dataset
 from numpynet.models import SequentialModel
 from numpynet.optimizers import Adam
 from numpynet.loss import CrossEntropy
-from numpynet.utils import split_dataset
 from numpynet.metrics import categorical_accuracy
 from numpynet.layers import Input, Dense, ReLU, Softmax, Dropout
 
 
 if __name__ == "__main__":
     # load iris dataset
-    X, y = iris.read_data_sets()
+    iris = iris.read_data_sets()
     # split dataset
-    X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.33)
+    train, test = split_dataset(iris, test_size=0.33)
 
     # build model
     model = SequentialModel()
@@ -35,5 +33,5 @@ if __name__ == "__main__":
     
     # fit on data
     model.fit(
-        x=X_train, y=y_train, val_x=X_test, val_y=y_test,
+        x=train.X, y=train.y, val_x=test.X, val_y=test.y,
         epochs=500, batch_size=8)
