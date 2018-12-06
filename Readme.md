@@ -1,6 +1,8 @@
 # NumpyNet
 
-High level neural network API implementated using numpy
+High level neural network API implementated using numpy.
+
+The project is my homework in deeplearning course at NCTU. Anyone can trace the code to learn how to do the backpropagation on sequential model and how to build a basic deeplearning API with python.
 
 ## Requirements
 - python3
@@ -55,7 +57,7 @@ if __name__ == "__main__":
 
 ```
 
-- output
+output
 
 ```
 Epoch 1/500
@@ -66,6 +68,13 @@ Epoch 2/500
 Epoch 500/500
 100%|█████████████| 13/13 [00:00<00:00, 1296.02it/s, categorical_accuracy=0.6900, cross_entropy=0.8285, val_categorical_accuracy=0.9600, val_cross_entropy=0.2492]
 ```
+
+[more examples](https://github.com/w86763777/numpynet/tree/master/examples)
+
+## How it work
+
+- TODO
+
 
 ## Issues
 - regularization deos not work
