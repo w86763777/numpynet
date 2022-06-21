@@ -2,7 +2,7 @@ entrypoints==0.3
 flake8==3.7.9
 mccabe==0.6.1
 munch==2.5.0
-numpy==1.18.2
+numpy==1.22.0
 numpynet==0.0.1
 pkg-resources==0.0.0
 pycodestyle==2.5.0
